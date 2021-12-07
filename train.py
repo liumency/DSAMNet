@@ -45,9 +45,6 @@ if __name__ == '__main__':
     CDcriterion = BCL().to(device, dtype=torch.float)
     CDcriterion1 = DiceLoss().to(device, dtype=torch.float)
 
-    if opt.niter!= 0:
-        lr_decay = opt.lr/(opt.num_epochs - opt.niter)
-
     results = {'train_loss': [], 'train_CT':[], 'train_Dice':[],'val_IoU': []}
 
     # training
