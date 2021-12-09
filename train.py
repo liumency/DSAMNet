@@ -130,7 +130,7 @@ if __name__ == '__main__':
 
         if val_loss > 0.5 or epoch==1:
             mloss = val_loss
-            torch.save(netCD.state_dict(),  opt.model_dir+'netCD_epoch_%d.pth' % (epoch+opt.pre_num ))
+            torch.save(netCD.state_dict(),  opt.model_dir+'netCD_epoch_%d.pth' % (epoch))
 
         results['train_loss'].append(running_results['CD_loss'] / running_results['batch_sizes'])
         results['train_CT'].append(running_results['CT_loss'] / running_results['batch_sizes'])
