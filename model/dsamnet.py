@@ -7,12 +7,12 @@ from utils import CBAM, DS_layer
 
 
 class DSAMNet(nn.Module):
-    def __init__(self, n_class=2,  ratio = 16, kernel = 7, backbone='resnet18', output_stride=16, f_c=64, freeze_bn=False, in_c=3):
+    def __init__(self, n_class=2,  ratio = 8, kernel = 7, backbone='resnet18', output_stride=16, f_c=64, freeze_bn=False, in_c=3):
         super(DSAMNet, self).__init__()
         BatchNorm = nn.BatchNorm2d
 
         self.backbone = build_backbone(backbone, output_stride, BatchNorm, in_c)
-        self.decoder = build_decoder(f_c, BatchNorm, ratio = 16, kernel = 7)
+        self.decoder = build_decoder(f_c, BatchNorm, ratio = 8, kernel = 7)
 
         self.cbam0 = CBAM(64, ratio, kernel)
         self.cbam1 = CBAM(64, ratio, kernel)
