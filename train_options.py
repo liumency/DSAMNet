@@ -10,7 +10,7 @@ parser.add_argument('--val_batchsize', default=16, type=int, help='batchsize for
 parser.add_argument('--num_workers', default=24, type=int, help='num_workers')
 parser.add_argument('--n_class', default=2, type=int, help='number of class')
 parser.add_argument('--gpu_id', default="0", type=str, help='which gpu to run.')
-parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate for adam')
+parser.add_argument('--lr', type=float, default=0.0005, help='initial learning rate for adam')
 parser.add_argument('--beta1', type=float, default=0.9, help='momentum term of adam')
 parser.add_argument('--suffix', default=['.png','.jpg','.tif'], type=list, help='the suffix of the image files.')
 parser.add_argument('--wDice', type=float, default=0.1, help='weight of dice loss')
