@@ -12,7 +12,7 @@ class DSAMNet(nn.Module):
         BatchNorm = nn.BatchNorm2d
 
         self.backbone = build_backbone(backbone, output_stride, BatchNorm, in_c)
-        self.decoder = build_decoder(f_c, BatchNorm, ratio = 8, kernel = 7)
+        self.decoder = build_decoder(f_c, BatchNorm)
 
         self.cbam0 = CBAM(64, ratio, kernel)
         self.cbam1 = CBAM(64, ratio, kernel)
