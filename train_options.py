@@ -4,7 +4,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Train Change Detection Models')
 
 # training parameters
-parser.add_argument('--num_epochs', default=200, type=int, help='train epoch number')
+parser.add_argument('--num_epochs', default=100, type=int, help='train epoch number')
 parser.add_argument('--batchsize', default=8, type=int, help='batchsize')
 parser.add_argument('--val_batchsize', default=16, type=int, help='batchsize for validation')
 parser.add_argument('--num_workers', default=24, type=int, help='num_workers')
