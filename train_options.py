@@ -17,18 +17,18 @@ parser.add_argument('--wDice', type=float, default=0.1, help='weight of dice los
 
 
 # path for loading data
-parser.add_argument('--train1_dir', default='../Data/MS_CD/CDD/train/time1', type=str, help='whether used cbam trick')
-parser.add_argument('--train2_dir', default='../Data/MS_CD/CDD/train/time2', type=str, help='whether used cbam trick')
-parser.add_argument('--label_train', default='../Data/MS_CD/CDD/train/label', type=str, help='whether used cbam trick')
+parser.add_argument('--train1_dir', default='../Data/MS_CD/CDD/train/time1', type=str, help='t1 image path for training')
+parser.add_argument('--train2_dir', default='../Data/MS_CD/CDD/train/time2', type=str, help='t2 image path for training')
+parser.add_argument('--label_train', default='../Data/MS_CD/CDD/train/label', type=str, help='label path for training')
 
-parser.add_argument('--val1_dir', default='../Data/MS_CD/CDD/val/time1', type=str, help='whether used cbam trick')
-parser.add_argument('--val2_dir', default='../Data/MS_CD/CDD/val/time2', type=str, help='whether used cbam trick')
-parser.add_argument('--label_val', default='../Data/MS_CD/CDD/val/label', type=str, help='whether used cbam trick')
+parser.add_argument('--val1_dir', default='../Data/MS_CD/CDD/val/time1', type=str, help='t1 image path for validation')
+parser.add_argument('--val2_dir', default='../Data/MS_CD/CDD/val/time2', type=str, help='t2 image path for validation')
+parser.add_argument('--label_val', default='../Data/MS_CD/CDD/val/label', type=str, help='label path for validation')
 
 
 # network saving and loading parameters
-parser.add_argument('--model_dir', default='epochs/CDD/', type=str, help='whether used cbam trick')
-parser.add_argument('--sta_dir', default='statistics/CDD.csv', type=str, help='whether used cbam trick')
+parser.add_argument('--model_dir', default='epochs/CDD/', type=str, help='save path for CD model')
+parser.add_argument('--sta_dir', default='statistics/CDD.csv', type=str, help='statistics')
 
 
 
