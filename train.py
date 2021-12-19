@@ -9,7 +9,7 @@ from tqdm import tqdm
 from data_utils import  calMetric_iou, LoadDatasetFromFolder
 from loss.BCL import BCL
 from loss.DiceLoss import DiceLoss
-from model.dsamnet import dsamnet
+from model.dsamnet import DSAMNet as dsamnet
 import numpy as np
 import random
 from train_options import parser
