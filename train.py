@@ -39,6 +39,11 @@ if __name__ == '__main__':
 
     # define model
     netCD = DSAMNet(opt.n_class).to(device, dtype=torch.float)
+    
+    # use more than one gpu
+    if torch.cuda.device_count() > 1:
+        print("Use", torch.cuda.device_count(), "GPUs!")
+        netCD = torch.nn.DataParallel(netCD, device_ids=range(torch.cuda.device_count()))    
 
     # set optimization
     optimizerCD = optim.Adam(netCD.parameters(),lr= opt.lr, betas=(opt.beta1, 0.999))
