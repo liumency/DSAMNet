@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from .backbone import build_backbone
 from .decoder import build_decoder
-from utils import CBAM, DS_layer
+from .utils import CBAM, DS_layer
 
 
 class DSAMNet(nn.Module):
@@ -14,8 +14,8 @@ class DSAMNet(nn.Module):
         self.backbone = build_backbone(backbone, output_stride, BatchNorm, in_c)
         self.decoder = build_decoder(f_c, BatchNorm)
 
-        self.cbam0 = CBAM(64, ratio, kernel)
-        self.cbam1 = CBAM(64, ratio, kernel)
+        self.cbam0 = CBAM(f_c, ratio, kernel)
+        self.cbam1 = CBAM(f_c, ratio, kernel)
 
         self.ds_lyr2 = DS_layer(64, 32, 2, 1, n_class)
         self.ds_lyr3 = DS_layer(128, 32, 4, 3, n_class)
