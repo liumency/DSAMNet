@@ -9,7 +9,7 @@ from tqdm import tqdm
 from data_utils import  calMetric_iou, LoadDatasetFromFolder
 from loss.BCL import BCL
 from loss.DiceLoss import DiceLoss
-from model.dsamnet import dsamnet
+from model.dsamnet import DSAMNet
 import numpy as np
 import random
 from train_options import parser
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     val_loader = DataLoader(dataset=val_set, num_workers=opt.num_workers, batch_size=opt.val_batchsize, shuffle=True)
 
     # define model
-    netCD = dsamnet(opt.n_class).to(device, dtype=torch.float)
+    netCD = DSAMNet(opt.n_class).to(device, dtype=torch.float)
 
     # set optimization
     optimizerCD = optim.Adam(netCD.parameters(),lr= opt.lr, betas=(opt.beta1, 0.999))
