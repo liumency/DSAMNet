@@ -99,3 +99,29 @@ class LoadDatasetFromFolder(Dataset):
 
     def __len__(self):
         return len(self.hr1_filenames)
+    
+    
+ class TestDatasetFromFolder(Dataset):
+    def __init__(self, Time1_dir, Time2_dir, Label_dir, image_sets):
+        super(TestDatasetFromFolder, self).__init__()
+
+        self.image1_filenames = [join(Time1_dir, x) for x in image_sets if is_image_file(x)]
+        self.image2_filenames = [join(Time2_dir, x) for x in image_sets if is_image_file(x)]
+        self.image3_filenames = [join(Label_dir, x) for x in image_sets if is_image_file(x)]
+
+        self.transform = get_transform(convert=True, normalize=True)  # convert to tensor and normalize to [-1,1]
+        self.label_transform = get_transform()
+
+    def __getitem__(self, index):
+        image1 = self.transform(Image.open(self.image1_filenames[index]).convert('RGB'))
+        image2 = self.transform(Image.open(self.image2_filenames[index]).convert('RGB'))
+        label = self.label_transform(Image.open(self.image3_filenames[index]))
+        label = make_one_hot(label.unsqueeze(0).long(), 2).squeeze(0)
+
+        image_name =  self.image1_filenames[index].split('/', -1)
+        image_name = image_name[len(image_name)-1]
+
+        return image1, image2, label, image_name
+
+    def __len__(self):
+        return len(self.image1_filenames)
