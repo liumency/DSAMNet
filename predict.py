@@ -38,8 +38,6 @@ if __name__ == '__main__':
     test_set = TestDatasetFromFolder(opt.time1_dir, opt.time2_dir, opt.label_dir, image_sets)
     test_loader = DataLoader(dataset=test_set, num_workers=24, batch_size=1, shuffle=True)
     test_bar = tqdm(test_loader)
-    inter = 0
-    unin = 0
 
     for image1, image2, label, image_name in test_bar:
 
