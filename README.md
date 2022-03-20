@@ -5,6 +5,11 @@ The pytorch implementation for "[A Deeply-supervised Attention Metric-based Netw
 
 <br>
 
+## Requirements
+torch == 1.2.0
+torchvision = 0.4.0
+
+
 ## Dataset: SYSU-CD ([download](https://github.com/liumency/SYSU-CD))
 
 - The dataset contains 20000 pairs of 0.5-m aerial images of size 256×256 taken between the years 2007 and 2014 in Hong Kong. 
