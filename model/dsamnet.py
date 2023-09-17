@@ -30,10 +30,10 @@ class DSAMNet(nn.Module):
         x1 = self.decoder(x_1, f2_1, f3_1, f4_1)
         x2 = self.decoder(x_2, f2_2, f3_2, f4_2)
 
-        x1 = self.cbam0(x1)
-        x2 = self.cbam1(x2) # channel = 64
+        x1 = self.cbam0(x1). transpose(1,3) 
+        x2 = self.cbam1(x2). transpose(1,3)  # channel = 64
 
-        dist = F.pairwise_distance(x1, x2, keepdim=True) # channel = 1
+        dist = F.pairwise_distance(x1, x2, keepdim=True). transpose(1,3)  # channel = 1
         dist = F.interpolate(dist, size=input1.shape[2:], mode='bilinear', align_corners=True)
 
         ds2 = self.ds_lyr2(torch.abs(f2_1 - f2_2))
